@@ -1,0 +1,13 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+	padding-top: 70px;
+}	
+
+.control-label.required:after {
+	content: "*";
+	color: #B00;
+	float: right;
+	margin-right: -10px;
+	width: 10px;
+	text-align: center;
+}
