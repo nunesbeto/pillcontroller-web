@@ -38,9 +38,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Pill Controller</a>
+          <a class="navbar-brand" href="/">Pill Controller</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Logout</a></li>
@@ -51,41 +51,42 @@
 
     <div class="container">
 
-      <form class="form-horizontal" action="/">
+      <form class="form-horizontal" action="/medicine" method="post">
+        {{ csrf_field() }}
         <div class="form-group">
-          <label for="medicine" class="col-sm-2 control-label required">Medicine</label>
+          <label for="name" class="col-sm-2 control-label required">Medicine</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="medicine" placeholder="">
+            <input type="text" class="form-control" id="name" name="name" placeholder="">
           </div>
         </div>
         <div class="form-group">
-          <label for="frequency" class="col-sm-2 control-label required">Frequency (hours)</label>
+          <label for="frequency" class="col-sm-2 control-label required">Times a day</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="frequency" placeholder="">
+            <input type="text" class="form-control" id="frequency" name="frequency" placeholder="">
           </div>
         </div>
         <div class="form-group">
           <label for="startDate" class="col-sm-2 control-label required">Start Date</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="startDate" placeholder="">
+            <input type="text" class="form-control" id="startDate" name="startDate" placeholder="">
           </div>
         </div>
         <div class="form-group">
           <label for="startTime" class="col-sm-2 control-label required">Start Time</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="startTime" placeholder="">
+            <input type="text" class="form-control" id="startTime" name="startTime" placeholder="">
           </div>
         </div>
         <div class="form-group">
           <label for="endDate" class="col-sm-2 control-label">End Date</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="endDate" placeholder="">
+            <input type="text" class="form-control" id="endDate" name="endDate" placeholder="">
           </div>
         </div>
         <div class="form-group">
           <label for="endTime" class="col-sm-2 control-label">End Time</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="endTime" placeholder="">
+            <input type="text" class="form-control" id="endTime" name="endTime" placeholder="">
           </div>
         </div>
         <div class="form-group">
@@ -102,17 +103,15 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary pull-right">Save Medicine</button>
+          <div class="col-sm-offset-2 col-sm-10 text-right">
+            <button type="submit" class="btn btn-primary">Save Medicine</button>
+            <a href="/" class="btn btn-default">Cancel</a>
           </div>
         </div>
       </form>
 
     </div><!-- /.container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

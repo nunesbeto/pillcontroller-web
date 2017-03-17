@@ -22,6 +22,12 @@ class MedicineController extends Controller
         ]);
     }
 
+    public function all()
+    {
+        $medicines = Medicine::all();
+        return view('index', [ 'medicines' => $medicines ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +35,7 @@ class MedicineController extends Controller
      */
     public function create()
     {
-        //
+        return view('add-medicine');
     }
 
     /**
@@ -40,7 +46,19 @@ class MedicineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $medicine = new Medicine;
+        $medicine->name       = $input['name'];
+        $medicine->frequency  = $input['frequency'];
+        $medicine->start_date = $input['startDate'];
+        $medicine->start_time = $input['startTime'];
+        $medicine->end_date   = isset($input['endDate']) && $input['endDate'] ? $input['endDate'] : null;
+        $medicine->end_time   = isset($input['endTime']) && $input['endTime'] ? $input['endTime'] : null;
+        $medicine->color      = isset($input['color']) && $input['color'] ? $input['color'] : '#'.dechex(rand(0x000000, 0xFFFFFF));
+        $medicine->save();
+
+        return redirect('/');
     }
 
     /**

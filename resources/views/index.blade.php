@@ -41,9 +41,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Pill Controller</a>
+          <a class="navbar-brand" href="/">Pill Controller</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Logout</a></li>
@@ -59,7 +59,7 @@
           <h3 style="margin-top:0">Medicines</h3>
         </div>
         <div class="col-md-12">
-          <i class="fa fa-fw fa-heart" style="color:#B00"></i> 3 medicines
+          <i class="fa fa-fw fa-heart" style="color:#B00"></i> {{ count($medicines) }} medicines
         </div>
       </div>
 
@@ -68,21 +68,23 @@
       <div class="row">
         <div class="col-md-12">
           <div class="list-group">
-            <a href="#" class="list-group-item">
+            @foreach ($medicines as $medicine)
+                <a href="#" class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-10">
+                      <h4 class="list-group-item-heading">{{ $medicine->name }}</h4>
+                      <p class="list-group-item-text">{{ $medicine->frequency }} times a day</p>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                      <i class="fa fa-circle fa-2x" style="color:{{ $medicine->color }}"></i>
+                    </div>
+                  </div>
+                </a>
+            @endforeach
+            <!-- <a href="#" class="list-group-item">
               <div class="row">
                 <div class="col-xs-10">
-                  <h4 class="list-group-item-heading">Medicine 1</h4>
-                  <p class="list-group-item-text">7 PM</p>
-                </div>
-                <div class="col-xs-2 text-right">
-                  <i class="fa fa-circle fa-2x" style="color:red"></i>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="list-group-item">
-              <div class="row">
-                <div class="col-xs-10">
-                  <h4 class="list-group-item-heading">Medicine 2</h4>
+                  <h4 class="list-group-item-heading">Hydrocodone</h4>
                   <p class="list-group-item-text">10 PM</p>
                 </div>
                 <div class="col-xs-2 text-right">
@@ -93,14 +95,14 @@
             <a href="#" class="list-group-item">
               <div class="row">
                 <div class="col-xs-10">
-                  <h4 class="list-group-item-heading">Medicine 3</h4>
+                  <h4 class="list-group-item-heading">Lisinopril</h4>
                   <p class="list-group-item-text">6 AM, tomorrow</p>
                 </div>
                 <div class="col-xs-2 text-right">
                   <i class="fa fa-circle fa-2x" style="color:blue"></i>
                 </div>
               </div>
-            </a>
+            </a> -->
           </div>
 
           <a class="btn btn-success pull-right" href="add-medicine">Add Medicine</a>

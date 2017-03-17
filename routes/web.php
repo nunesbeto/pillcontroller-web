@@ -11,5 +11,6 @@
 |
 */
 
-Route::get('/', function () { return view('index'); });
-Route::get('/add-medicine', function () { return view('add-medicine'); });
+Route::get ('/', 'MedicineController@all');
+Route::get ('/add-medicine', 'MedicineController@create');
+Route::post('/medicine', 'MedicineController@store');
